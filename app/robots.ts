@@ -16,11 +16,12 @@ const DISALLOW = [
   "/search",
   "/settings",
   "/login",
+  "/signin",
+  "/sign-in",
   "/signup",
   "/verify",
   "/auth/",
   "/api/",
-
 ];
 
 export default function robots(): MetadataRoute.Robots {
