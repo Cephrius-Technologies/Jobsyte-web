@@ -137,7 +137,7 @@ export default function MarketingShell({
               className="rounded-full px-4"
               asChild
             >
-              <Link href="/app.jobsyte.co/login">Sign in</Link>
+              <Link href="/app.jobsyte.co">Sign in</Link>
             </Button>
             <Button size="sm" className="rounded-full px-4 shadow-sm" asChild>
               <Link href={REQUEST_DEMO_HREF}>
@@ -178,7 +178,7 @@ export default function MarketingShell({
                   className="flex-1 rounded-full"
                   asChild
                 >
-                  <Link href="/app.jobsyte.co/login" onClick={() => setMobileOpen(false)}>
+                  <Link href="/app.jobsyte.co" onClick={() => setMobileOpen(false)}>
                     Sign in
                   </Link>
                 </Button>
@@ -237,7 +237,7 @@ export default function MarketingShell({
               </p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <Link href="/app.jobsyte.co/login" className="hover:text-foreground">
+                  <Link href="/app.jobsyte.co" className="hover:text-foreground">
                     Sign in
                   </Link>
                 </li>

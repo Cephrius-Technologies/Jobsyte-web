@@ -20,6 +20,7 @@ const DISALLOW = [
   "/verify",
   "/auth/",
   "/api/",
+
 ];
 
 export default function robots(): MetadataRoute.Robots {
