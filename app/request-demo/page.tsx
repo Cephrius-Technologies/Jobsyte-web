@@ -152,14 +152,14 @@ export default function RequestDemoPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <header className="border-b border-border">
+      <header className="border-b border-black/10 bg-white text-[#111]">
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-8">
           <Link href="/" aria-label="JobSyte home">
             <Image
-              src="/banner_dark_trans.png"
+              src="/jobsyte-wordmark-black-on-light.png"
               alt="JobSyte"
-              width={400}
-              height={100}
+              width={704}
+              height={230}
               className="h-8 w-auto sm:h-9"
               priority
             />

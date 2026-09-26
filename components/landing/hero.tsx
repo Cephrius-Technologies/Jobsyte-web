@@ -16,18 +16,11 @@ export function Hero() {
           className="mb-4 flex justify-center items-center"
         >
           <Image
-            src="/jobsyte_banner_light_trans.png"
+            src="/jobsyte-wordmark-black-on-light.png"
             alt="JobSyte Logo"
-            width={960}
-            height={320}
-            className="mx-auto w-full max-w-[860px] h-auto dark:hidden"
-          />
-          <Image
-            src="/jobsyte_banner_dark_trans.png"
-            alt="JobSyte Logo"
-            width={960}
-            height={320}
-            className="mx-auto hidden w-full max-w-[860px] h-auto dark:block"
+            width={704}
+            height={230}
+            className="mx-auto w-full max-w-[704px] h-auto"
           />
         </motion.div>
         <motion.div
@@ -42,26 +35,7 @@ export function Hero() {
             animate={{ scale: [1, 1.3, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
-          >
-            <Image
-              src="/JobSyte_OFFICAL_LIGHT.png"
-              alt="JobSyte"
-              width={520}
-              height={100}
-              className="h-6 w-auto dark:hidden"
-            />
-            <Image
-              src="/JobSyte_OFFICAL_DARK.png"
-              alt="JobSyte"
-              width={520}
-              height={100}
-              className="hidden h-6 w-auto dark:block"
-            />
-          </motion.div>
+          <span className="text-xs font-semibold text-foreground">JobSyte</span>
           <span className="text-xs text-muted-foreground">Now in early access</span>
         </motion.div>
 

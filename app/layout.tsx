@@ -93,10 +93,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/image.png", sizes: "any" },
+      { url: "/jobsyte-icon.png", type: "image/png", sizes: "240x240" },
     ],
-    apple: "/jobsyte_safari.png",
-    shortcut: "/jobstye_copy.ico",
+    apple: "/jobsyte-icon.png",
+    shortcut: "/jobsyte-icon.png",
   },
   // verification: { google: "<add-search-console-token>" },
 };

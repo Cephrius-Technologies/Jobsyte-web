@@ -15,14 +15,14 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ["business", "productivity", "construction"],
     icons: [
       {
-        src: "/image.png",
-        sizes: "512x512",
+        src: "/jobsyte-icon.png",
+        sizes: "240x240",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/jobsyte_safari.png",
-        sizes: "180x180",
+        src: "/jobsyte-icon.png",
+        sizes: "240x240",
         type: "image/png",
         purpose: "maskable",
       },

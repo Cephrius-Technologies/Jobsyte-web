@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { ArrowRight, Menu, X } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { REQUEST_DEMO_HREF } from "@/components/landing/marketing-data";
@@ -12,25 +10,15 @@ import {
   HEADER_ENTER_DURATION,
 } from "@/components/landing/marketing-motion";
 
-const NAV_LINKS = [
-  { href: "/features", label: "Features" },
-  { href: "/how-it-works", label: "How it works" },
-  { href: "/modules", label: "Modules" },
-  { href: "/why-jobsyte", label: "Why JobSyte" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/request-demo", label: "Request a demo" },
-];
-
 export default function MarketingShell({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const shouldReduceMotion = useReducedMotion();
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+    <main className="relative min-h-screen overflow-x-hidden bg-[#0d0d0d] text-white">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 overflow-hidden"
@@ -85,123 +73,36 @@ export default function MarketingShell({
         />
       </div>
 
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl supports-backdrop-filter:bg-background/60">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#101010]/95 text-white backdrop-blur-xl supports-backdrop-filter:bg-[#101010]/85">
         <motion.div
-          className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-6 px-4 md:px-8"
+          className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-4 px-4 md:px-8"
           initial={
             shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }
           }
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: HEADER_ENTER_DURATION, ease: EASE_OUT }}
         >
-          <div className="flex items-center gap-10">
-            <Link
-              href="/"
-              className="flex items-center gap-2"
-              aria-label="JobSyte home"
-            >
-              <Image
-                src="/jobsyte_banner_light_trans.png"
-                alt="JobSyte"
-                width={800}
-                height={200}
-                className="h-16 w-auto sm:h-20 md:h-24 dark:hidden"
-                priority
-              />
-              <Image
-                src="/jobsyte_banner_dark_trans.png"
-                alt="JobSyte"
-                width={800}
-                height={200}
-                className="hidden h-16 w-auto sm:h-20 md:h-24 dark:block"
-                priority
-              />
-            </Link>
-            <nav className="hidden items-center gap-6 md:flex">
-              {NAV_LINKS.slice(0, 5).map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          <div className="hidden items-center gap-2 justify-end md:flex">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="rounded-full px-4"
-              asChild
-            >
-              <Link href="https://app.jobsyte.co">Sign in</Link>
-            </Button>
-            <Button size="sm" className="rounded-full px-4 shadow-sm" asChild>
-              <Link href={REQUEST_DEMO_HREF}>
-                Request a demo
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-          </div>
-
-          <button
-            type="button"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((v) => !v)}
-            className="inline-flex size-10 items-center justify-center rounded-full border border-border/60 bg-background/60 text-foreground md:hidden"
-          >
-            {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+          <Link href="/" aria-label="JobSyte home">
+            <Image
+              src="/jobsyte-wordmark-white-on-dark.png"
+              alt="JobSyte"
+              width={704}
+              height={230}
+              className="h-8 w-auto sm:h-9"
+              priority
+            />
+          </Link>
+          <Button size="sm" className="rounded-full px-4" asChild>
+            <Link href="https://app.jobsyte.co">Log in</Link>
+          </Button>
         </motion.div>
-
-        {mobileOpen ? (
-          <div className="border-t border-border/60 bg-background/90 backdrop-blur-xl md:hidden">
-            <div className="mx-auto flex w-full max-w-7xl flex-col gap-1 px-4 py-4">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-muted hover:text-foreground"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="mt-2 flex items-center gap-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="flex-1 rounded-full"
-                  asChild
-                >
-                  <Link href="https://app.jobsyte.co" onClick={() => setMobileOpen(false)}>
-                    Sign in
-                  </Link>
-                </Button>
-                <Button size="sm" className="flex-1 rounded-full shadow-sm" asChild>
-                  <Link
-                    href={REQUEST_DEMO_HREF}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    Request a demo
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        ) : null}
       </header>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-24 pt-12 sm:pt-16 md:px-8 md:pt-20">
         {children}
       </div>
 
-      <footer className="relative z-10 border-t border-border/60 bg-background/80 backdrop-blur">
+      <footer className="relative z-10 border-t border-white/10 bg-[#101010] text-white backdrop-blur">
         <div className="mx-auto w-full max-w-7xl px-4 py-12 md:px-8">
           <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
             <div>
@@ -211,40 +112,34 @@ export default function MarketingShell({
                 aria-label="JobSyte home"
               >
                 <Image
-                  src="/jobsyte_banner_light_trans.png"
+                  src="/jobsyte-wordmark-white-on-dark.png"
                   alt="JobSyte"
-                  width={800}
-                  height={200}
-                  className="h-24 w-auto sm:h-28 md:h-32 dark:hidden"
-                />
-                <Image
-                  src="/jobsyte_banner_dark_trans.png"
-                  alt="JobSyte"
-                  width={800}
-                  height={200}
-                  className="hidden h-24 w-auto sm:h-28 md:h-32 dark:block"
+                  width={704}
+                  height={230}
+                  className="h-9 w-auto sm:h-10"
                 />
               </Link>
-              <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-                Construction project management built for sub-contractors. Keep
-                your field and office on the same page.
+              <p className="mt-4 max-w-sm text-sm text-white/55">
+                JobSyte is the shared operations workspace for subcontractors:
+                projects, jobs, crews, payroll, invoices, and accounting in one
+                connected system.
               </p>
             </div>
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-foreground">
+              <p className="text-xs font-semibold uppercase tracking-wider text-white">
                 Account
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <ul className="mt-4 space-y-2 text-sm text-white/55">
                 <li>
-                  <Link href="https://app.jobsyte.co" className="hover:text-foreground">
+                  <Link href="https://app.jobsyte.co" className="hover:text-white">
                     Sign in
                   </Link>
                 </li>
                 <li>
                   <Link
                     href={REQUEST_DEMO_HREF}
-                    className="hover:text-foreground"
+                    className="hover:text-white"
                   >
                     Get started
                   </Link>
@@ -252,14 +147,14 @@ export default function MarketingShell({
               </ul>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-foreground">
+              <p className="text-xs font-semibold uppercase tracking-wider text-white">
                 Contact
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <ul className="mt-4 space-y-2 text-sm text-white/55">
                 <li>
                   <a
                     href="mailto:sales@jobsyte.com"
-                    className="hover:text-foreground"
+                    className="hover:text-white"
                   >
                     sales@jobsyte.com
                   </a>
@@ -267,7 +162,7 @@ export default function MarketingShell({
               </ul>
             </div>
           </div>
-          <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground md:flex-row">
+          <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/40 md:flex-row">
             <p>© 2026 JobSyte. All rights reserved.</p>
             <p>Powered by Cephrius Technologies</p>
           </div>

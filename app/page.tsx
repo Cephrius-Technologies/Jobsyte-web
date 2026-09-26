@@ -1,13 +1,6 @@
 import MarketingShell from "@/components/landing/marketing-shell";
-import { HeroSection } from "@/components/landing/sections/hero";
-import { DashboardPreviewSection } from "@/components/landing/sections/dashboard-preview";
-import { FeaturesSection } from "@/components/landing/sections/features";
-import { HowItWorksSection } from "@/components/landing/sections/how-it-works";
-import { StatsBannerSection } from "@/components/landing/sections/stats-banner";
-import { BuildersSection } from "@/components/landing/sections/builders";
-import { FaqSection } from "@/components/landing/sections/faq";
-import { CtaBanner } from "@/components/landing/sections/cta-banner";
-import { FAQ_ITEMS, SITE_URL } from "@/components/landing/marketing-data";
+import { ConstructionHome } from "@/components/landing/sections/construction-home";
+import { SITE_URL } from "@/components/landing/marketing-data";
 
 const HOME_PAGE_STRUCTURED_DATA = [
   {
@@ -15,7 +8,7 @@ const HOME_PAGE_STRUCTURED_DATA = [
     "@type": "Organization",
     name: "JobSyte",
     url: SITE_URL,
-    logo: `${SITE_URL}/image.png`,
+    logo: `${SITE_URL}/jobsyte-icon.png`,
     email: "sales@jobsyte.com",
     description:
       "Construction project management software built for sub-contractors working with national home builders.",
@@ -74,18 +67,6 @@ const HOME_PAGE_STRUCTURED_DATA = [
       url: SITE_URL,
     },
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map(({ q, a }) => ({
-      "@type": "Question",
-      name: q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: a,
-      },
-    })),
-  },
 ];
 
 export default function LandingPage() {
@@ -99,14 +80,7 @@ export default function LandingPage() {
         />
       ))}
       <MarketingShell>
-        <HeroSection />
-        <DashboardPreviewSection />
-        <FeaturesSection />
-        <HowItWorksSection />
-        <StatsBannerSection />
-        <BuildersSection />
-        <FaqSection />
-        <CtaBanner />
+        <ConstructionHome />
       </MarketingShell>
     </>
   );
